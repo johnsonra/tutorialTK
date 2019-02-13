@@ -1,0 +1,9 @@
+Package: tutorialTK
+Title: Tutorial Tool Kit
+Version: 0.1
+Authors@R: person("Randy", "Johnson", email = "randall.johnson@nih.gov", role = c("aut", "cre"))
+Description: A tool kit for making tutorials.
+Depends: R (>= 3.0.0), magrittr, purrr
+License: MIT + file LICENSE
+LazyData: TRUE
+RoxygenNote: 6.1.0
