@@ -2,12 +2,18 @@
 
 # I don't want to make any mistakes while typing, and I also want to be albe to think/talk while it is typing.
 
-library(dplyr)
+library(tutorialTK)
+library(ggplot2)
+library(cowplot)
 
 # create a random data set
 set.seed(293487)
 dat <- tibble(x = rnorm(100),
-              y = x + rnorm(100))
-              
+cat = factor(rep(1:2, each = 50)),
+y = ifelse(cat == 1, x, -x) + rnorm(100))
+
 # plot our figure
-plot(dat$x, dat$y)
+ggplot(dat, aes(x, y, color = cat)) +
+geom_point() +
+geom_smooth(method = 'lm') +
+scale_color_manual(values = CBB12(1:2, 'c'))
