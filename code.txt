@@ -1,0 +1,13 @@
+# This is a sample file that we want to write. It has some good text.
+
+# I don't want to make any mistakes while typing, and I also want to be albe to think/talk while it is typing.
+
+library(dplyr)
+
+# create a random data set
+set.seed(293487)
+dat <- tibble(x = rnorm(100),
+              y = x + rnorm(100))
+              
+# plot our figure
+plot(dat$x, dat$y)
