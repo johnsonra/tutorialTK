@@ -14,7 +14,7 @@ ghostwriter(file, lines = NULL, speed = 0.1,
 
 \item{speed}{A number parameterizing the speed at which the script will type.}
 
-\item{script}{A path to the location where the script will be written.}
+\item{script}{A path to the location where the script will be written. If NULL then no output file will be created.}
 
 \item{application}{The application where the keyboard input should go.}
 }

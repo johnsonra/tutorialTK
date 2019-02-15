@@ -5,15 +5,18 @@
 #' @param file A file with the desired text to write
 #' @param lines A numeric vector specifying which lines to type. If unspecified, the entire file will be typed out.
 #' @param speed A number parameterizing the speed at which the script will type.
-#' @param script A path to the location where the script will be written.
+#' @param script A path to the location where the script will be written. If NULL then no output file will be created.
 #' @param application The application where the keyboard input should go.
 #' 
 #' @note This currently only allows hard returns as special characters. Any other characters will be entered exactly as they appear in the file.
 #' 
 #' @return Returns the script invisibly.
 #' 
-#' @import magrittr
-#' @import purrr
+#' @importFrom magrittr %>%
+#' @importFrom purrr map
+#' @importFrom stats rnorm
+#' 
+#' @export
 ghostwriter <- function(file, lines = NULL, speed = 0.1, script = 'ghostwrite.scpt', application = 'RStudio')
 {
     l <- readLines(file)
@@ -35,7 +38,8 @@ ghostwriter <- function(file, lines = NULL, speed = 0.1, script = 'ghostwrite.sc
                  text,
                  'end tell', sep = '\n')
 
-    cat(out, file = script)                    
+    if(!is.null(script))
+        cat(out, file = script)                    
 
     invisible(out)    
 }
